@@ -79,7 +79,7 @@ function showTasks(arr, tableTitle) {
   for (let task of arr) {
     let status = task.isDone ? "Terminé" : "En attente";
     console.log(` 
-        ${task.id} | ${task.description}   | ${status}
+        ${task.id}  |      ${task.description}              | ${status}
       `);
   }
 }
@@ -122,6 +122,9 @@ function deleteTask() {
     if (task.id == id) tasks.splice(tasks.indexOf(task), 1);
   }
   console.log("     La tâche a été supprimée avec succès!");
+  for (let i = 0; i < tasks.length; i++) {
+    tasks[i].id = i + 1;
+  }
 }
 
 function completeTask() {
